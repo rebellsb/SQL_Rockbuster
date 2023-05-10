@@ -7,6 +7,4 @@ Rockbuster is a fictional movie rental company with physical stores. In order to
 The aim of this project was to analyise their current performance and gain insights that will help the management team form business decisions.
 
 # Data
-Base data can be found here
-
-For visualistion please click here
+For visualistion please click [here](https://public.tableau.com/app/profile/rebekka.brandt/viz/CF3_10CustomersRevenueperCountry/Top10CitiesbyCustomer)
