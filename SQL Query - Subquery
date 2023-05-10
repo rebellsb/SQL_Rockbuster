@@ -1,0 +1,23 @@
+Using a Subquery to find the average amount the Top 5 customers paid
+
+
+SELECT AVG(total_amount) AS average
+FROM(SELECT SUM(A.amount) AS total_amount,
+		B.customer_id,
+		B.first_name,
+		B.last_name,
+		E.country,
+		D.city
+FROM payment A
+INNER JOIN customer B ON A.customer_ID = B.customer_ID
+INNER JOIN address C ON B.address_id = C.address_id
+INNER JOIN city D ON C.city_id = D.city_id
+INNER JOIN country E ON D.country_id = E.country_id
+WHERE city IN ('Aurora', 'Acua', 'Citrus Heights', 'Iwaki', 'Ambattur', 'Shanwei', 'So Leopoldo', 'Teboksary', 'Tianjin', 'Cianjur')
+GROUP BY B.customer_id,
+		B.first_name,
+		B.last_name,
+		E.country,
+		D.city
+ORDER BY total_amount DESC
+LIMIT 5) AS total_amount_paid
